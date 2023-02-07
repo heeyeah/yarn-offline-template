@@ -6,10 +6,16 @@
 - yarn-1.22.19.msi
 
 ## 추가로 필요한 패키지가 있을 때 (online)
-`git clone https://github.com/heeyeah/yarn-offline-template.git`
-`yarn add <<package you want>>`
-`ll npm_packages/ | grep <<package you install>>`
->> 정상적으로 포함됐는지 확인 후 `npm_packages` 폴더 압축파일과 `package.json`, `.yarnrc` 파일 반입
+``` bash
+
+$> git clone https://github.com/heeyeah/yarn-offline-template.git
+
+$> yarn add {package you want}
+
+$> ll npm_packages/ | grep {package you install} #정상적으로 포함됐는지 확인
+```
+
+정상적으로 포함됐는지 확인 후 `npm_packages` 폴더 압축파일과 `package.json`, `.yarnrc` 파일 반입
 
 
 ## 오프라인에서 패키지 의존성 받을 때 (offline)
@@ -25,8 +31,30 @@ my-app
  ...
 ```
 
-`yarn install --offline`
-`yarn start`로 확인
+``` bash
+$> yarn install --offline
+
+info No lockfile found.
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > @testing-library/user-event@14.4.3" has unmet peer dependency "@testing-library/dom@>=7.21.4".
+warning "react-scripts > eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-syntax-flow@
+^7.14.5".
+warning "react-scripts > eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-transform-re
+act-jsx@^7.14.9".
+warning "react-scripts > react-dev-utils > fork-ts-checker-webpack-plugin@6.5.2" has unmet peer dependency "typescript@>= 2.7".
+warning "react-scripts > eslint-config-react-app > @typescript-eslint/eslint-plugin > tsutils@3.21.0" has unmet peer dependency "types
+cript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3
+.7.0-beta".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 15.07s.
+
+
+$> yarn start # 앱 잘뜨는지 확인!
+```
+
 
 ---
 
