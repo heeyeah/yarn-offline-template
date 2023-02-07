@@ -1,3 +1,35 @@
+# yarn offline build guideline
+
+## 사전 설치
+> 노드는 버전에 약간 민감(?) 하니 왠만하면 버전을 맞춰서 사용하는 게 좋습니다.
+- node-v18.14.0-x64.msi
+- yarn-1.22.19.msi
+
+## 추가로 필요한 패키지가 있을 때 (online)
+`git clone https://github.com/heeyeah/yarn-offline-template.git`
+`yarn add <<package you want>>`
+`ll npm_packages/ | grep <<package you install>>`
+>> 정상적으로 포함됐는지 확인 후 `npm_packages` 폴더 압축파일과 `package.json`, `.yarnrc` 파일 반입
+
+
+## 오프라인에서 패키지 의존성 받을 때 (offline)
+프로젝트의 루트 디렉토리에 `npm_packages` 압축해제, `package.json`, `.yarnrc` 파일 복사
+
+```
+my-app
+ /npm_packages
+ /.yarnrc
+ /package.json
+ /src
+ /.gitignore
+ ...
+```
+
+`yarn install --offline`
+`yarn start`로 확인
+
+---
+
 # Getting Started with Create React App and Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
